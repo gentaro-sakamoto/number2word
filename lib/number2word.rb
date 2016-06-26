@@ -1,5 +1,13 @@
 module Number2Word
   def convert(num)
-    puts num
+    valid_num = validate(num)
+    puts valid_num
+  end
+
+  def validate(num)
+    raise 'You need to pass a number' if num.nil? || num.empty?
+    num_without_whtiespace_or_comma = num.gsub(/[\s,]/ ,"")
+    raise 'You can only pass arabic numerals' unless num_without_whtiespace_or_comma =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/
+    num_without_whtiespace_or_comma
   end
 end
