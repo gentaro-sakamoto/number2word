@@ -36,4 +36,17 @@ describe "Number2Word" do
     end
 
   end
+
+  context "Negative" do
+    context "Type Fixnum " do
+      let(:number){ -1 }
+      it { expect{subject}.not_to raise_error }
+    end
+
+    context "Type String " do
+      let(:number){ "-1" }
+      it { expect{subject}.not_to raise_error }
+    end
+
+  end
 end

@@ -5,8 +5,9 @@ module Number2Word
   end
 
   def validate(num)
-    raise 'You need to pass a number' if num.nil? || num.empty?
-    num_without_whtiespace_or_comma = num.gsub(/[\s,]/ ,"")
+    string_num = num.to_s
+    raise 'You need to pass a number' if string_num.empty?
+    num_without_whtiespace_or_comma = string_num.gsub(/[\s,]/ ,"")
     raise 'You can only pass arabic numerals' unless num_without_whtiespace_or_comma =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/
     num_without_whtiespace_or_comma
   end
