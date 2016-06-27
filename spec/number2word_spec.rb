@@ -49,4 +49,62 @@ describe "Number2Word" do
     end
 
   end
+
+  context "Zero" do
+    let(:number){ 0 }
+    it { expect{subject}.not_to raise_error }
+  end
+
+  context "Floating point" do
+    let(:number){ 1000.11 }
+    it { expect{subject}.not_to raise_error }
+  end
+
+  (1..10).each do |num|
+    context "Range 1-10: #{num}" do
+      let(:number){ num }
+      it { expect{subject}.not_to raise_error }
+    end
+  end
+
+  (11..100).each do |num|
+    context "Range 11-100: #{num}" do
+      let(:number){ num }
+      it { expect{subject}.not_to raise_error }
+    end
+  end
+
+  context "Large number" do
+    context "More than one thousand" do
+      let(:number){ "1,123" }
+      it { expect{subject}.not_to raise_error }
+    end
+
+    context "More than one thousand" do
+      let(:number){ "1,123" }
+      it { expect{subject}.not_to raise_error }
+    end
+
+    context "More than one million" do
+      let(:number){ "1,123,456" }
+      it { expect{subject}.not_to raise_error }
+    end
+
+    context "More than one billion" do
+      let(:number){ "1,123,456,789" }
+      it { expect{subject}.not_to raise_error }
+    end
+
+    context "More than one trillion" do
+      let(:number){ "1,123,456,789,012" }
+      it { expect{subject}.not_to raise_error }
+    end
+
+    context "More than one centillion" do
+      let(:number){ 7128895353753512801851213839122324656430517127764242492772122014363994162410568756562761573538649597748463505127063089169061629466715041366197187934797638009975342907981315112215903509554633328742826248199166160019498345725451164673477322579175931292781354746911215934169601043364358422156689012325474774 }
+      it { expect{subject}.not_to raise_error }
+    end
+
+  end
+
 end
