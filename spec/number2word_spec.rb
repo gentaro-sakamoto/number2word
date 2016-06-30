@@ -53,6 +53,7 @@ describe "Number2Word" do
   context "Zero" do
     let(:number){ 0 }
     it { expect{subject}.not_to raise_error }
+    it { expect(subject).to eq("zero") }
   end
 
   context "Floating point" do
