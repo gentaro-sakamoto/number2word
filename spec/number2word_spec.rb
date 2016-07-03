@@ -74,6 +74,7 @@ describe "Number2Word" do
     context "Range 11-100: #{num}" do
       let(:number){ num }
       it { expect{subject}.not_to raise_error }
+      it { expect(subject).to eq(SAMPLE_NUMBERS[num.to_s]) }
     end
   end
 
