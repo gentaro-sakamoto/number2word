@@ -1,6 +1,6 @@
 INITIALIZER = -1
-require File.expand_path("../data/big_numbers.rb",File.dirname(__FILE__))
-require File.expand_path("../data/sub_one_thousand.rb",File.dirname(__FILE__))
+require_relative("../data/big_numbers")
+require_relative("../data/sub_one_thousand")
 module Number2Word
   def convert(num)
     negative = false

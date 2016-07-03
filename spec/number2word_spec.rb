@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'number2word'
-require File.expand_path("fixtures/sample_numbers.rb",File.dirname(__FILE__))
+require_relative("fixtures/sample_numbers")
 
 describe "Number2Word" do
   include Number2Word
