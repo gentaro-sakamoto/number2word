@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'number2word'
+require File.expand_path("fixtures/sample_numbers.rb",File.dirname(__FILE__))
 
 describe "Number2Word" do
   include Number2Word
@@ -65,6 +66,7 @@ describe "Number2Word" do
     context "Range 1-10: #{num}" do
       let(:number){ num }
       it { expect{subject}.not_to raise_error }
+      it { expect(subject).to eq(SAMPLE_NUMBERS[num.to_s]) }
     end
   end
 
