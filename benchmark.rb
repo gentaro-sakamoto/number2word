@@ -1,0 +1,10 @@
+require 'benchmark'
+require_relative 'lib/number2word'
+
+include Number2Word
+
+Benchmark.benchmark do |x|
+  x.report(:convert_big_num) do
+    100.times { |n| convert(rand(10**303..10**304)) }
+  end
+end
