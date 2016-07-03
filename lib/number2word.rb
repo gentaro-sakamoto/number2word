@@ -18,7 +18,7 @@ module Number2Word
       word = ''
       processing_num, remainder = processing_num.divmod(1000)
       word << BIG_NUMBERS[i] if processing_num.nonzero? && processing_num != 1000
-      word << (word.empty? ? '' : ' ') + "#{SUB_ONE_THOUSAND[remainder]}" if remainder.nonzero? && remainder.is_a?(Integer)
+      word << (word.empty? ? '' : ' ') + "#{SUB_ONE_THOUSAND[remainder]}" if remainder >= 1
       stack << word
       i = i.succ
     end

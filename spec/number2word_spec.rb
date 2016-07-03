@@ -60,9 +60,17 @@ describe "Number2Word" do
   end
 
   context "Floating point" do
-    let(:number){ 1000.11 }
-    it { expect{subject}.not_to raise_error }
-    it { expect(subject).to eq('one thousand point one one') }
+    context "less than one thousand" do
+      let(:number){ 999.11 }
+      it { expect{subject}.not_to raise_error }
+      it { expect(subject).to eq('nine hundred and ninety-nine point one one') }
+    end
+
+    context "more than one thousand" do
+      let(:number){ 1000.11 }
+      it { expect{subject}.not_to raise_error }
+      it { expect(subject).to eq('one thousand point one one') }
+    end
   end
 
   (1..10).each do |num|
