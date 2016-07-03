@@ -82,6 +82,12 @@ describe "Number2Word" do
   end
 
   context "Large number" do
+    context "Just one thousand" do
+      let(:number){ "1,000" }
+      it { expect{subject}.not_to raise_error }
+      it { expect(subject).to eq('one thousand') }
+    end
+
     context "More than one thousand" do
       let(:number){ "1,123" }
       it { expect{subject}.not_to raise_error }
